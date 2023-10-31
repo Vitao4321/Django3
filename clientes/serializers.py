@@ -11,5 +11,10 @@ class ClienteSerializer(serializers.ModelSerializer):
             raise serializers.ValidationError("O CPF deve ter 11 digitos")
         return cpf
     
+    def validate_name(self, nome):
+        if not (nome.isalph()):
+            raise serializers.ValidationError("O NOME deve conter apenas digitos")
+        return nome
+
 
     
